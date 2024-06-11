@@ -14,13 +14,13 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/src/pages/*": ["src/pages/*"],
-      "@/src/containers/*": ["src/containers/*"],
-      "@/src/components/*": ["src/components/*"],
-      "@/src/hooks/*": ["src/hooks/*"],
-      "@/src/context/*": ["src/context/*"],
-      "@/src/common/*": ["src/common/*"],
-      "@/src/utils/*": ["src/utils/*"]
+      "@/pages/*": ["src/pages/*"],
+      "@/containers/*": ["src/containers/*"],
+      "@/components/*": ["src/components/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/context/*": ["src/context/*"],
+      "@/common/*": ["src/common/*"],
+      "@/utils/*": ["src/utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
