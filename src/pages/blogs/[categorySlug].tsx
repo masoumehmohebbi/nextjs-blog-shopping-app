@@ -4,6 +4,7 @@ import axios from "axios";
 import MobileCategory from "@/components/post/MobileCategory";
 import SortBar from "@/components/post/SortBar";
 import DesktopCategory from "@/components/post/DesktopCategory";
+import queryString from "query-string";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function CategorySlug({ blogsData, postCategories }) {
@@ -32,11 +33,11 @@ export default function CategorySlug({ blogsData, postCategories }) {
 }
 
 export async function getServerSideProps(context) {
-  const { query, params } = context;
-  console.log(query, params);
+  const { query } = context;
+  console.log(queryString.stringify(query));
 
   const { data: result } = await axios.get(
-    `http://localhost:5000/api/posts?limit=6&page=1&categorySlug=${params.categorySlug}`
+    `http://localhost:5000/api/posts?${queryString.stringify(query)}`
   );
   const { data: postCategories } = await axios.get(
     "http://localhost:5000/api/post-category"

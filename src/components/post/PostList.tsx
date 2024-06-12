@@ -14,15 +14,19 @@ export default function PostList({ blogsData }) {
     >
       {/* blog cover */}
       <div className="aspect-w-16 aspect-h-9 mb-6">
-        <img
-          src={blog.coverImage}
-          alt=""
-          className="w-full h-full object-center object-cover rounded-2xl"
-        />
+        <Link href={`/posts/${blog.hashId}/${blog.slug}`}>
+          <img
+            src={blog.coverImage}
+            alt=""
+            className="w-full h-full object-center object-cover rounded-2xl"
+          />
+        </Link>
       </div>
       {/* blog content */}
       <div className="bg-gray-50 rounded-xl p-2 flex flex-col w-full justify-between flex-1">
-        <h2 className="mb-4 font-bold">{blog.title}</h2>
+        <Link href={`/posts/${blog.hashId}/${blog.slug}`}>
+          <h2 className="mb-4 font-bold">{blog.title}</h2>
+        </Link>
         {/* blog data */}
         <div>
           {/* blog author-category */}
