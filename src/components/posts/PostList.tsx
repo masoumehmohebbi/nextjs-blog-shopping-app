@@ -1,14 +1,9 @@
-import PostInteraction from "@/pages/posts/PostInteraction";
-import {
-  BookmarkIcon,
-  ChatBubbleBottomCenterTextIcon,
-  ClockIcon,
-  HeartIcon,
-} from "@heroicons/react/24/outline";
+import PostInteraction from "@/components/posts/PostInteraction";
+
 import Link from "next/link";
 
 export default function PostList({ blogsData }) {
-  return blogsData.docs.map((blog, index) => (
+  return blogsData?.docs?.map((blog, index) => (
     <div
       key={index}
       className="col-span-6 md:col-span-3 lg:col-span-2 bg-white rounded-3xl p-2 flex flex-col max-h-[350px]"
@@ -35,7 +30,7 @@ export default function PostList({ blogsData }) {
             <div className="flex items-center">
               <img
                 className="rounded-full ring-2 ring-white w-6 h-6 ml-2"
-                src="images/nextjs.png"
+                src="images/nuxtjs.png"
                 alt=""
               />
               <span className="text-sm">معصومه محبی</span>

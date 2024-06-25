@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
-import PostList from "@/components/post/PostList";
+import PostList from "@/components/posts/PostList";
 import axios from "axios";
-import MobileCategory from "@/components/post/MobileCategory";
-import SortBar from "@/components/post/SortBar";
-import DesktopCategory from "@/components/post/DesktopCategory";
+import MobileCategory from "@/components/posts/MobileCategory";
+import SortBar from "@/components/posts/SortBar";
+import DesktopCategory from "@/components/posts/DesktopCategory";
 import Layout from "@/containers/layout";
 const inter = Inter({ subsets: ["latin"] });
 

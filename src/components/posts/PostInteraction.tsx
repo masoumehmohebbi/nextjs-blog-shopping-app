@@ -9,7 +9,6 @@ import {
   BookmarkIcon as SolideBookmarkIcon,
 } from "@heroicons/react/16/solid";
 import { useRouter } from "next/router";
-import toast from "react-hot-toast";
 
 const PostInteraction = ({ post, isSmall, className }) => {
   const iconSize = isSmall ? "h-4 w-4" : "h-6 w-6";

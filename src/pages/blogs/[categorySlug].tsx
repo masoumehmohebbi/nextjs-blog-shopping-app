@@ -1,15 +1,16 @@
 import { Inter } from "next/font/google";
-import PostList from "@/components/post/PostList";
+import PostList from "@/components/posts/PostList";
 import axios from "axios";
-import MobileCategory from "@/components/post/MobileCategory";
-import SortBar from "@/components/post/SortBar";
-import DesktopCategory from "@/components/post/DesktopCategory";
+import MobileCategory from "@/components/posts/MobileCategory";
+import SortBar from "@/components/posts/SortBar";
+import DesktopCategory from "@/components/posts/DesktopCategory";
 import queryString from "query-string";
+import Layout from "@/containers/layout";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function CategorySlug({ blogsData, postCategories }) {
   return (
-    <div className="bg-gray-100">
+    <Layout>
       <div className="container mx-auto lg:max-w-screen-xl px-4 md:px-0">
         <MobileCategory postCategories={postCategories} />
 
@@ -28,7 +29,7 @@ export default function CategorySlug({ blogsData, postCategories }) {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
