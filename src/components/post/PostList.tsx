@@ -1,3 +1,4 @@
+import PostInteraction from "@/pages/posts/PostInteraction";
 import {
   BookmarkIcon,
   ChatBubbleBottomCenterTextIcon,
@@ -47,30 +48,7 @@ export default function PostList({ blogsData }) {
           </div>
 
           {/* blog interaction */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-x-2">
-              <button className="bg-gray-200 p-0.5 rounded flex items-center gap-x-1">
-                <ChatBubbleBottomCenterTextIcon className="w-4 h-4 stroke-gray-500" />
-                <span className="text-xs text-gray-500 font-bold leading-3">
-                  {blog.commentsCount}
-                </span>
-              </button>
-              <button className="bg-red-100 p-0.5 rounded flex items-center gap-x-1">
-                <HeartIcon className="w-4 h-4 stroke-red-500" />
-                <span className="text-xs text-red-500 font-bold leading-3">
-                  {blog.likesCount}
-                </span>
-              </button>
-              <button className="bg-blue-100 p-0.5 rounded flex items-center gap-x-1">
-                <BookmarkIcon className="w-4 h-4 stroke-blue-500" />
-              </button>
-            </div>
-            <div className="flex items-center text-[10px] text-gray-400 font-bold">
-              <ClockIcon className="w-4 h-4 stroke-gray-400 ml-1" />
-              <span className="ml-1">زمان مطالعه:</span>
-              <span className="ml-1">{blog.readingTime} دقیقه</span>
-            </div>
-          </div>
+          <PostInteraction post={blog} isSmall />
         </div>
       </div>
     </div>
