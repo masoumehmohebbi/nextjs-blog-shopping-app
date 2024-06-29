@@ -1,15 +1,7 @@
-import Layout from "@/containers/layout";
-import Link from "next/link";
-import React from "react";
+import { Inter } from "next/font/google";
 
-const HomePage = () => {
-  return (
-    <Layout>
-      <div className="container mx-auto sm:max-w-screen-xl">
-        HomePage - <Link href="/blogs">blog page</Link>
-      </div>
-    </Layout>
-  );
-};
+const inter = Inter({ subsets: ["latin"] });
 
-export default HomePage;
+export default function Home() {
+  return <main className="bg-green-200">welcome</main>;
+}
