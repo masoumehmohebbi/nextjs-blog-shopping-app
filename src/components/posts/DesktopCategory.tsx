@@ -5,12 +5,12 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-const DesktopCategory = () => {
+const DesktopCategory = ({ postCategories }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       {/* accordion */}
-      <div className="col-span-3 rounded-3xl overflow-hidden">
+      <div className="rounded-3xl overflow-hidden shadow-md">
         {/* accordion header */}
         <div
           onClick={() => setIsOpen(!isOpen)}
@@ -30,30 +30,17 @@ const DesktopCategory = () => {
         </div>
 
         {/* accordion body */}
-
-        <div
-          className={`bg-white border-t-2 border-violet-300  ${
-            isOpen ? "block" : "hidden"
-          }`}
-        >
-          <Link
-            className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
-            href="/"
-          >
-            react
-          </Link>
-          <Link
-            className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
-            href="/"
-          >
-            vue
-          </Link>
-          <Link
-            className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
-            href="/"
-          >
-            node
-          </Link>
+        <div className={`bg-white ${isOpen ? "block" : "hidden"}`}>
+          <div className="w-11/12 h-[2px] mx-auto bg-[#f4f5f7] mb-2"></div>
+          {postCategories.map((category) => (
+            <Link
+              key={category._id}
+              className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
+              href="/"
+            >
+              {category.title}
+            </Link>
+          ))}
         </div>
       </div>
     </>

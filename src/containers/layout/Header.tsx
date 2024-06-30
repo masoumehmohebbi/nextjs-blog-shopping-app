@@ -28,10 +28,10 @@ const Header = () => {
     <header className="mb-7 text-slate-800">
       <div className="container mx-auto xl:max-w-screen-xl flex items-center justify-between py-4">
         <div className="flex gap-x-9 items-center">
-          <div className="flex items-center gap-x-1 text-violet-500">
+          <Link href="/" className="flex items-center gap-x-1 text-violet-500">
             <RiNextjsFill className="w-10 h-10" />
             <span className="font-black text-lg">بلاگـ شاپـ</span>
-          </div>
+          </Link>
 
           {navItems.map((item, index) => (
             <div
