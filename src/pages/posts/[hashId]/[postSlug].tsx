@@ -1,7 +1,8 @@
+import Layout from "@/containers/layout";
 import React from "react";
 
 const PostDetails = () => {
-  return <div>PostDetails</div>;
+  return <Layout>PostDetails</Layout>;
 };
 
 export default PostDetails;

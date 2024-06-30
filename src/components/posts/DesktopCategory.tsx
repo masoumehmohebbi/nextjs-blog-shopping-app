@@ -10,7 +10,7 @@ const DesktopCategory = ({ postCategories }) => {
   return (
     <>
       {/* accordion */}
-      <div className="rounded-3xl overflow-hidden shadow-md">
+      <div className="rounded-3xl overflow-hidden shadow-md sticky top-[100px]">
         {/* accordion header */}
         <div
           onClick={() => setIsOpen(!isOpen)}
@@ -36,7 +36,7 @@ const DesktopCategory = ({ postCategories }) => {
             <Link
               key={category._id}
               className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
-              href="/"
+              href={`/blogs/${category.englishTitle}`}
             >
               {category.title}
             </Link>

@@ -10,27 +10,29 @@ const PostList = ({ blogsData }) => {
     >
       {/* blog cover */}
       <div className="aspect-w-16 aspect-h-9 mb-6">
-        <img
-          className="w-full h-full object-center rounded-xl object-cover"
-          src={blog.coverImage}
-          alt={blog.title}
-        />
+        <Link href={`/posts/${blog.hashId}/${blog.slug}`}>
+          <img
+            className="w-full h-full object-center rounded-xl object-cover"
+            src={blog.coverImage}
+            alt={blog.title}
+          />
+        </Link>
       </div>
       {/* blog content */}
       <div className="flex-1 justify-between flex bg-violet-100 rounded-xl p-1 flex-col">
-        <h2>{blog.title}</h2>
+        <Link href={`/posts/${blog.hashId}/${blog.slug}`}>
+          <h2>{blog.title}</h2>
+        </Link>
         {/* blog data */}
         <div className="flex flex-col gap-5">
           <div className="flex justify-between items-center">
             {/* blog-author category */}
             <div className="flex items-center gap-x-2">
-              <Link href="">
-                <img
-                  className="w-6 h-6 ring-2 ring-violet-200 rounded-full"
-                  src="/images/author.png"
-                  alt="author"
-                />
-              </Link>
+              <img
+                className="w-6 h-6 ring-2 ring-violet-200 rounded-full"
+                src="/images/author.png"
+                alt="author"
+              />
               <span>{blog.author.name}</span>
             </div>
             <Link
