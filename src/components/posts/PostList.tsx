@@ -24,11 +24,13 @@ const PostList = ({ blogsData }) => {
           <div className="flex justify-between items-center">
             {/* blog-author category */}
             <div className="flex items-center gap-x-2">
-              <img
-                className="w-6 h-6 ring-2 ring-violet-200 rounded-full"
-                src="/images/tailwindcss.png"
-                alt="author"
-              />
+              <Link href="">
+                <img
+                  className="w-6 h-6 ring-2 ring-violet-200 rounded-full"
+                  src="/images/author.png"
+                  alt="author"
+                />
+              </Link>
               <span>{blog.author.name}</span>
             </div>
             <Link

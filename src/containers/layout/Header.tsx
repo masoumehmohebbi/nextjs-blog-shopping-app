@@ -49,10 +49,10 @@ const Header = () => {
         </div>
 
         <div className="flex gap-x-5 items-center">
-          <Link href="/">ثبت نام</Link>
+          <Link href="/signup">ثبت نام</Link>
           <Link
             className="bg-violet-500 hover:bg-violet-400 transition-all duration-200 text-violet-100 px-5 py-2 rounded-lg"
-            href="/"
+            href="/signin"
           >
             ورود
           </Link>
