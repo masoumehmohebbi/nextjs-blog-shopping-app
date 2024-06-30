@@ -1,3 +1,4 @@
+import PaginationComponent from "@/common/Pagination";
 import DesktopCategory from "@/components/posts/DesktopCategory";
 import PostList from "@/components/posts/PostList";
 import SortBar from "@/components/posts/SortBar";
@@ -22,8 +23,12 @@ const BlogPage = ({ postCategories, blogsData }) => {
             <SortBar />
           </div>
           {/* Blogs */}
-          <div className="col-span-12 md:col-span-9">
-            <PostList blogsData={blogsData} />
+          <div className="md:col-span-9 grid grid-cols-6 gap-8">
+            <PostList blogsData={blogsData.docs} />
+            <PaginationComponent
+              page={blogsData.page}
+              count={blogsData.totalPages}
+            />
           </div>
         </div>
       </div>
@@ -41,13 +46,13 @@ export async function getServerSideProps(ctx) {
   );
 
   const { data: blogsData } = await axios.get(
-    "http://localhost:5000/api/posts?limit=6"
+    "http://localhost:5000/api/posts?limit=3"
   );
 
   return {
     props: {
       postCategories: postCategories.data,
-      blogsData: blogsData.data.docs,
+      blogsData: blogsData.data,
     },
   };
 }

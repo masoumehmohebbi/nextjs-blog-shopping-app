@@ -9,18 +9,21 @@ const navItems = [
       <RiHome4Line className="w-5 h-5 text-slate-700 group-hover:text-violet-600" />
     ),
     label: "خانه",
+    href: "/",
   },
   {
     icon: (
       <RiBloggerLine className="w-5 h-5 text-slate-700 group-hover:text-violet-600" />
     ),
     label: "بلاگ ها",
+    href: "/blogs",
   },
   {
     icon: (
       <RiInformation2Line className="w-5 h-5 text-slate-700 group-hover:text-violet-600" />
     ),
     label: "درباره ما",
+    href: "/about-us",
   },
 ];
 const Header = () => {
@@ -34,13 +37,14 @@ const Header = () => {
           </Link>
 
           {navItems.map((item, index) => (
-            <div
+            <Link
+              href={item.href}
               key={index}
               className="flex items-center cursor-pointer gap-x-1 group hover:text-violet-600"
             >
               {item.icon}
-              <Link href="/blogs">{item.label}</Link>
-            </div>
+              <span>{item.label}</span>
+            </Link>
           ))}
         </div>
 
