@@ -25,7 +25,7 @@ const navItems = [
 ];
 const Header = () => {
   return (
-    <header className="mb-7 text-slate-800">
+    <header className="mb-7 bg-[#f4f5f7] z-10 text-slate-800 sticky top-0">
       <div className="container mx-auto xl:max-w-screen-xl flex items-center justify-between py-4">
         <div className="flex gap-x-9 items-center">
           <Link href="/" className="flex items-center gap-x-1 text-violet-500">
