@@ -43,7 +43,7 @@ const PostList = ({ blogsData }) => {
             </Link>
           </div>
           {/* blog interaction */}
-          <PostInteraction blog={blog} />
+          <PostInteraction post={blog} />
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import PaginationComponent from "@/common/Pagination";
 import DesktopCategory from "@/components/posts/DesktopCategory";
 import PostList from "@/components/posts/PostList";
 import SortBar from "@/components/posts/SortBar";
-import axios from "axios";
+import http from "@/services/httpService";
 import queryString from "query-string";
 import React from "react";
 import Layout from "src/containers/layout";
@@ -43,12 +43,10 @@ export default BlogPage;
 export async function getServerSideProps(ctx) {
   const { req, query } = ctx;
 
-  const { data: postCategories } = await axios.get(
-    "http://localhost:5000/api/post-category"
-  );
+  const { data: postCategories } = await http.get("/post-category");
 
-  const { data: blogsData } = await axios.get(
-    `http://localhost:5000/api/posts?${queryString.stringify(query)}`
+  const { data: blogsData } = await http.get(
+    `/posts?${queryString.stringify(query)}`
   );
 
   return {

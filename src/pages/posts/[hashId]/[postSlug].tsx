@@ -3,6 +3,7 @@ import PostInteraction from "@/components/posts/PostInteraction";
 import SortBar from "@/components/posts/SortBar";
 import Layout from "@/containers/layout";
 import useMoveBack from "@/hooks/useMoveBack";
+import http from "@/services/httpService";
 import toLocalDate from "@/utils/toLocalDate";
 import toPersianDigits from "@/utils/toPersianDigits";
 import {
@@ -10,17 +11,23 @@ import {
   BookmarkIcon,
   LinkIcon,
 } from "@heroicons/react/24/outline";
-import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaTelegram } from "react-icons/fa";
 import { IoLogoLinkedin, IoLogoTwitter } from "react-icons/io";
 import { MdContentCopy } from "react-icons/md";
 
 const PostDetails = ({ post }) => {
+  const [copied, setCopied] = useState(false);
   const moveBack = useMoveBack();
-  console.log(post);
+
+  const copHandler = () => {
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  };
 
   return (
     <Layout>
@@ -134,20 +141,78 @@ plugins: [],
           </pre>
         </main>
         {/* post tags like-bookmark */}
-        <section>
-          <ul className="flex items-center mb-6 gap-x-4 flex-wrap">
-            {["ریکت", "جاوااسکریپت", "فرانت اند", "Next.js"].map(
-              (tag, index) => (
-                <li
-                  key={index}
-                  className="px-3 py-1 rounded-2xl bg-violet-200 hover:bg-violet-100 transition-all  cursor-pointer text-violet-600 tex-sm mb-3 block"
-                >
-                  {tag}
-                </li>
-              )
-            )}
-          </ul>
+        <ul className="flex items-center gap-x-4 flex-wrap mb-6">
+          {["ریکت", "جاوااسکریپت", "فرانت اند", "Next.js"].map((tag, index) => (
+            <li
+              key={index}
+              className="px-3 py-1 rounded-2xl bg-violet-200 hover:bg-violet-100 transition-all  cursor-pointer text-violet-600 tex-sm mb-3 block"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+        <section className="flex items-center justify-between mb-6">
+          {/* like- comment- bookmark */}
+          <PostInteraction
+            post={post}
+            className="justify-evenly w-full md:w-auto"
+          />
+          {/* share buttons */}
+          <div className="flex items-center gap-x-6">
+            <div className="flex items-center md:gap-x-4 gap-x-6 md:w-auto">
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${process.env.NEXT_PUBLIC_DOMAIN_URL}/posts/${post.hashId}/${post.slug}`}
+                target="_blank"
+                className="block"
+                rel="noreferrer"
+              >
+                <IoLogoLinkedin
+                  size={30}
+                  className="fill-gray-400 hover:fill-gray-500 transition-all duration-300 cursor-pointer"
+                />
+              </a>
+              <a
+                href={`https://twitter.com/share?text=${post.title}&url=${process.env.NEXT_PUBLIC_DOMAIN_URL}/posts/${post.hashId}/${post.slug}`}
+                target="_blank"
+                rel="noreferrer"
+                className="block"
+              >
+                <IoLogoTwitter
+                  size={24}
+                  className="fill-gray-400  hover:fill-gray-500 transition-all duration-300 cursor-pointer"
+                />
+              </a>
+              <a
+                className="block"
+                rel="noreferrer"
+                target="_blank"
+                href={`https://telegram.me/share/url?url=${process.env.NEXT_PUBLIC_DOMAIN_URL}/posts/${post.hashId}/${post.slug}&text=${post.title}`}
+              >
+                <FaTelegram
+                  className="fill-gray-400 hover:fill-gray-500 transition-all duration-300 cursor-pointer"
+                  size={24}
+                />
+              </a>
+            </div>
+            <div className="relative">
+              <CopyToClipboard
+                text={`${process.env.NEXT_PUBLIC_DOMAIN_URL}/posts/${post.hashId}/${post.slug}&text=${post.title}`}
+                onCopy={copHandler}
+              >
+                <div className="bg-gray-100 border px-3 py-1 rounded-2xl text-gray-600 flex items-center gap-x-2 cursor-pointer ">
+                  <span className="text-sm md:text-base">کپی&nbsp;لینک</span>
+                  <MdContentCopy size={24} />
+                </div>
+              </CopyToClipboard>
+              {copied && (
+                <span className="absolute -top-8 left-0 bg-violet-500 px-3 py-1 rounded-2xl text-white text-sm">
+                  کپی شد
+                </span>
+              )}
+            </div>
+          </div>
         </section>
+        <div className="border-t-2 border-gray-500 rounded w-full mb-8"></div>
       </div>
     </Layout>
   );
@@ -160,7 +225,7 @@ export async function getServerSideProps(ctx) {
   const { postSlug } = query;
   const {
     data: { data },
-  } = await axios.get(`http://localhost:5000/api/posts/${postSlug}`);
+  } = await http.get(`/posts/${postSlug}`);
 
   return {
     props: {
