@@ -1,4 +1,5 @@
 import DesktopCategory from "@/components/posts/DesktopCategory";
+import PostInteraction from "@/components/posts/PostInteraction";
 import SortBar from "@/components/posts/SortBar";
 import Layout from "@/containers/layout";
 import useMoveBack from "@/hooks/useMoveBack";
@@ -12,6 +13,10 @@ import {
 import axios from "axios";
 import Link from "next/link";
 import React from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { FaTelegram } from "react-icons/fa";
+import { IoLogoLinkedin, IoLogoTwitter } from "react-icons/io";
+import { MdContentCopy } from "react-icons/md";
 
 const PostDetails = ({ post }) => {
   const moveBack = useMoveBack();
@@ -64,7 +69,7 @@ const PostDetails = ({ post }) => {
           {/* interactions buttons */}
           <div className="flex gap-x-7">
             <button>
-              <LinkIcon className="h-6 w-6 hover:text-slate-800 text-gray-500 cursor-pointer " />
+              <LinkIcon className="h-6 w-6 hover:text-slate-800 text-violet-500 cursor-pointer " />
             </button>
             <button className="rounded-2xl items-center flex gap-x-1 transition-all duration-200 bg-gray-200 text-gray-600 hover:text-gray-100 hover:bg-gray-600 px-2 py-1 text-sm">
               <span>ذخیره</span>
@@ -72,9 +77,77 @@ const PostDetails = ({ post }) => {
             </button>
           </div>
         </header>
-        <main>
+        <main
+          className="prose prose-xl prose-slate prose-h1:text-xl md:prose-h1:text-3xl  prose-h1:font-black prose-h2:text-xl md:prose-h2:text-2xl prose-h2:font-extrabold prose-p:text-base prose-p:leading-8 md:prose-p:text-lg md:prose-p:leading-10
+        prose-img:rounded-xl prose-a:text-blue-500 mb-8 max-w-screen-md  mx-auto
+        "
+        >
           <h1>{post.title}</h1>
+          <h2>عنوان اول تستی</h2>
+          <p>
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+            استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+            ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز،
+            و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
+            زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
+            متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
+            رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
+            کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+            راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
+            حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود
+            طراحی اساسا مورد استفاده قرار گیرد.
+          </p>
+          <img src={post.coverImage} alt={post.title} />
+          <h2>عنوان تستی دوم </h2>
+          <p>
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+            استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+            ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز،
+            و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
+            زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
+            متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
+            رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
+            کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+            راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
+            حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود
+            طراحی اساسا مورد استفاده قرار گیرد.
+          </p>
+          <h2>نحوه کانفیگ تیلویند</h2>
+          <p>
+            بدون استفاده از
+            <a href="https://highlightjs.org/">highlight.js</a> میتوان به سادگی
+            کدها را داخل محتوای بلاگ ها قرار داد!
+          </p>
+          <p>
+            به عنوان مثال، برای کانفیگ تیلویند باید از فایل{" "}
+            <code>tailwind.config.js</code> استفاده کرد:
+          </p>
+          <pre dir="ltr">
+            {`module.exports = {
+purge: [],
+theme: {
+  extend: {},
+},
+variants: {},
+plugins: [],
+}`}
+          </pre>
         </main>
+        {/* post tags like-bookmark */}
+        <section>
+          <ul className="flex items-center mb-6 gap-x-4 flex-wrap">
+            {["ریکت", "جاوااسکریپت", "فرانت اند", "Next.js"].map(
+              (tag, index) => (
+                <li
+                  key={index}
+                  className="px-3 py-1 rounded-2xl bg-violet-200 hover:bg-violet-100 transition-all  cursor-pointer text-violet-600 tex-sm mb-3 block"
+                >
+                  {tag}
+                </li>
+              )
+            )}
+          </ul>
+        </section>
       </div>
     </Layout>
   );

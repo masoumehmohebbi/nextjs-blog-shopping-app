@@ -1,3 +1,4 @@
+import Layout from "@/containers/layout";
 import useMoveBack from "@/hooks/useMoveBack";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import React from "react";
 const AboutUs = () => {
   const moveBack = useMoveBack();
   return (
-    <div className="bg-[#f4f5f7]  text-slate-800 min-h-screen py-11">
+    <Layout>
       <div className="md:max-w-screen-md container mx-auto shadow-sm p-2 rounded-md bg-white border">
         <div className="flex items-center mb-9">
           <button
@@ -22,7 +23,7 @@ const AboutUs = () => {
         </p>
         <span>...</span>
       </div>
-    </div>
+    </Layout>
   );
 };
 
