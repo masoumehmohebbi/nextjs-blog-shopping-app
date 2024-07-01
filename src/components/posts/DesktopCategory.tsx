@@ -4,9 +4,12 @@ import {
   RectangleGroupIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const DesktopCategory = ({ postCategories }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { query } = useRouter();
+
   return (
     <>
       {/* accordion */}
@@ -33,15 +36,21 @@ const DesktopCategory = ({ postCategories }) => {
         <div className={`bg-white ${isOpen ? "block" : "hidden"}`}>
           <div className="w-11/12 h-[2px] mx-auto bg-[#f4f5f7] mb-2"></div>
           <Link
-            className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
-            href={`/blogs`}
+            href="/blogs"
+            className={` py-2 hover:bg-violet-200 block px-3 cursor-pointer ${
+              !query.categorySlug &&
+              "bg-violet-700 hover:bg-violet-500 text-white"
+            } `}
           >
             همه مقالات
           </Link>
           {postCategories.map((category) => (
             <Link
               key={category._id}
-              className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
+              className={`py-2 hover:bg-violet-200 block px-3 cursor-pointer ${
+                query.categorySlug === category.englishTitle &&
+                " bg-violet-700 hover:bg-violet-500 text-white"
+              }`}
               href={`/blogs/${category.englishTitle}`}
             >
               {category.title}

@@ -3,6 +3,8 @@ import React from "react";
 import PostInteraction from "./PostInteraction";
 
 const PostList = ({ blogsData }) => {
+  console.log(blogsData);
+
   return blogsData.map((blog) => (
     <div
       key={blog._id}
