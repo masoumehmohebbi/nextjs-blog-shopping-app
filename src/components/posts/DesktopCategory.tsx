@@ -10,7 +10,7 @@ const DesktopCategory = ({ postCategories }) => {
   return (
     <>
       {/* accordion */}
-      <div className="rounded-3xl overflow-hidden shadow-md sticky top-[100px]">
+      <div className="rounded-3xl overflow-hidden shadow-md sticky top-24">
         {/* accordion header */}
         <div
           onClick={() => setIsOpen(!isOpen)}
@@ -32,6 +32,12 @@ const DesktopCategory = ({ postCategories }) => {
         {/* accordion body */}
         <div className={`bg-white ${isOpen ? "block" : "hidden"}`}>
           <div className="w-11/12 h-[2px] mx-auto bg-[#f4f5f7] mb-2"></div>
+          <Link
+            className="py-2 block px-3 cursor-pointer hover:bg-violet-50"
+            href={`/blogs`}
+          >
+            همه مقالات
+          </Link>
           {postCategories.map((category) => (
             <Link
               key={category._id}
