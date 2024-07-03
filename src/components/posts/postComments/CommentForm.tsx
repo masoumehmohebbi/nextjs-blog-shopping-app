@@ -26,7 +26,7 @@ const CommentForm = ({ postId, responseTo, setOnreply }) => {
       .catch((err) => toast.error(err?.response?.data?.message));
   };
   return (
-    <form onClick={submitHandler}>
+    <form>
       <textarea
         className="focus:ring-primary p-4 rounded my-4 w-full border-none ring-1 ring-gray-300 shadow-sm focus:outline-none focus:ring-purple-700 focus:ring-2"
         value={commentValue}
@@ -34,7 +34,7 @@ const CommentForm = ({ postId, responseTo, setOnreply }) => {
         placeholder="نظرت رو برام بنویس ..."
       />
       <button
-        type="submit"
+        onClick={submitHandler}
         className="mt-4 mx-auto py-3 w-full sm:w-56 bg-violet-700 rounded-2xl text-white px-3 md:text-lg"
       >
         ارسال نظرات

@@ -1,5 +1,6 @@
 import React from "react";
 import SingleComment from "./SingleComment";
+import ReplyComment from "./ReplyComment";
 
 const PostComments = ({ post }) => {
   return (
@@ -11,6 +12,11 @@ const PostComments = ({ post }) => {
           comment.status === 2 && (
             <React.Fragment key={comment._id}>
               <SingleComment comment={comment} postId={post._id} />
+              <ReplyComment
+                comments={post.comments}
+                parentCommentId={comment._id}
+                postId={post._id}
+              />
             </React.Fragment>
           )
         );
