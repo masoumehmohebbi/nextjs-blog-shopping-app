@@ -1,4 +1,5 @@
 import DesktopCategory from "@/components/posts/DesktopCategory";
+import PostComments from "@/components/posts/postComments";
 import PostInteraction from "@/components/posts/PostInteraction";
 import PostList from "@/components/posts/PostList";
 import SortBar from "@/components/posts/SortBar";
@@ -20,8 +21,6 @@ import { IoLogoLinkedin, IoLogoTwitter } from "react-icons/io";
 import { MdContentCopy } from "react-icons/md";
 
 const PostDetails = ({ post }) => {
-  console.log("post related", post);
-
   const [copied, setCopied] = useState(false);
   const moveBack = useMoveBack();
 
@@ -226,6 +225,8 @@ plugins: [],
             <PostList blogsData={post.related} />
           </div>
         </section>
+        {/* post comments */}
+        <PostComments post={post} />
       </div>
     </Layout>
   );
