@@ -1,8 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import PostInteraction from "./PostInteraction";
+import { ClockIcon } from "@heroicons/react/24/outline";
+import toPersianDigits from "@/utils/toPersianDigits";
 
 const PostList = ({ blogsData }) => {
+  console.log("---", blogsData);
+
   return blogsData.map((blog) => (
     <div
       key={blog._id}
@@ -43,7 +47,15 @@ const PostList = ({ blogsData }) => {
             </Link>
           </div>
           {/* blog interaction */}
-          <PostInteraction post={blog} />
+          <div className="flex justify-between items-center">
+            <PostInteraction isSmall post={blog} />
+            <div className="flex text-gray-600 items-center gap-x-1 text-xs">
+              <ClockIcon className="w-4 h-4" />
+              <span>زمان مطالعه:</span>
+              <span>{toPersianDigits(blog.readingTime)}</span>
+              <span>دقیقه</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

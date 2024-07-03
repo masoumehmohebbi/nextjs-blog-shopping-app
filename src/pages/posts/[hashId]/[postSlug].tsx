@@ -1,5 +1,6 @@
 import DesktopCategory from "@/components/posts/DesktopCategory";
 import PostInteraction from "@/components/posts/PostInteraction";
+import PostList from "@/components/posts/PostList";
 import SortBar from "@/components/posts/SortBar";
 import Layout from "@/containers/layout";
 import useMoveBack from "@/hooks/useMoveBack";
@@ -19,6 +20,8 @@ import { IoLogoLinkedin, IoLogoTwitter } from "react-icons/io";
 import { MdContentCopy } from "react-icons/md";
 
 const PostDetails = ({ post }) => {
+  console.log("post related", post);
+
   const [copied, setCopied] = useState(false);
   const moveBack = useMoveBack();
 
@@ -86,7 +89,7 @@ const PostDetails = ({ post }) => {
         </header>
         <main
           className="prose prose-xl prose-slate prose-h1:text-xl md:prose-h1:text-3xl  prose-h1:font-black prose-h2:text-xl md:prose-h2:text-2xl prose-h2:font-extrabold prose-p:text-base prose-p:leading-8 md:prose-p:text-lg md:prose-p:leading-10
-        prose-img:rounded-xl prose-a:text-blue-500 mb-8 max-w-screen-md  mx-auto
+        prose-img:rounded-xl prose-a:text-blue-500 mb-8 max-w-screen-md mx-auto
         "
         >
           <h1>{post.title}</h1>
@@ -213,6 +216,16 @@ plugins: [],
           </div>
         </section>
         <div className="border-t-2 border-gray-500 rounded w-full mb-8"></div>
+        {/* realated posts */}
+        <section className="mb-20">
+          <h2 className="font-extrabold text-2xl md:text-3xl mb-8">
+            پست های مشابه
+          </h2>
+
+          <div className="grid grid-cols-6 gap-3">
+            <PostList blogsData={post.related} />
+          </div>
+        </section>
       </div>
     </Layout>
   );
