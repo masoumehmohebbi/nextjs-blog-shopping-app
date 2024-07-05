@@ -1,8 +1,10 @@
 import Input from "@/components/formInput";
 import Layout from "@/containers/layout";
+import { useAuthActions } from "@/context/AuthContext";
 import { useFormik } from "formik";
 import Link from "next/link";
 import React from "react";
+import { SignUpFormValues } from "src/types/formInputs";
 import * as Yup from "yup";
 
 //  initial values
@@ -32,11 +34,18 @@ const validationSchema = Yup.object({
     .required("رمز عبور را مجددا وارد کنید "),
 });
 
-const onSubmit = (values) => {
-  const { name, email, phoneNumber, password } = values;
-};
+const SignUpForm = () => {
+  const dispatch = useAuthActions();
 
-const SignUp = () => {
+  const onSubmit = (values: SignUpFormValues) => {
+    const { name, email, phoneNumber, password } = values;
+
+    dispatch({
+      type: "SIGNUP",
+      payload: { name, email, phoneNumber, password },
+    });
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -91,4 +100,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpForm;

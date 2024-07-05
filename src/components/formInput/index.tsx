@@ -1,12 +1,5 @@
-import { FormikProps } from "formik";
+import { InputProps } from "src/types/formInputs";
 
-interface InputProps {
-  placeholder?: string;
-  formik: FormikProps<any>;
-  name: string;
-  label: string;
-  type?: string;
-}
 export default function Input({
   placeholder,
   formik,

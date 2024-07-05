@@ -22,6 +22,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.2.1",
+    "use-reducer-async": "^2.1.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {

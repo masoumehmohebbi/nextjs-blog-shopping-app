@@ -1,8 +1,11 @@
 import Input from "@/components/formInput";
 import Layout from "@/containers/layout";
+import { useAuth, useAuthActions } from "@/context/AuthContext";
 import { useFormik } from "formik";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { SignInFormValues } from "src/types/formInputs";
 import * as Yup from "yup";
 
 // validation schema
@@ -21,8 +24,13 @@ const initialValues = {
 };
 
 const SignIn = () => {
-  const onSubmit = (values) => {
+  const dispatch = useAuthActions();
+  const { user } = useAuth();
+  const router = useRouter();
+
+  const onSubmit = (values: SignInFormValues) => {
     const { email, password } = values;
+    dispatch({ type: "SIGNIN", payload: values });
   };
 
   const formik = useFormik({
@@ -31,6 +39,10 @@ const SignIn = () => {
     validationSchema,
     validateOnMount: true,
   });
+
+  useEffect(() => {
+    if (user) router.push("/");
+  }, [user]);
 
   return (
     <Layout>
