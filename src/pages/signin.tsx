@@ -21,16 +21,16 @@ const initialValues = {
 };
 
 const SignIn = () => {
+  const onSubmit = (values) => {
+    const { email, password } = values;
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
   });
-
-  const onSubmit = (values) => {
-    const { email, password } = values;
-  };
 
   return (
     <Layout>
