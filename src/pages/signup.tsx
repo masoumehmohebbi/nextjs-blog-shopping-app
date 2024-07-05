@@ -1,9 +1,22 @@
 import Input from "@/components/formInput";
 import Layout from "@/containers/layout";
+import { useFormik } from "formik";
 import Link from "next/link";
 import React from "react";
 
+//  initial values
+const initialValues = {
+  name: "",
+  email: "",
+  phoneNumber: "",
+  password: "",
+  confirmPassword: "",
+};
+
 const SignUp = () => {
+  const formik = useFormik({
+    initialValues,
+  });
   return (
     <Layout>
       <div className="container md:max-w-md mx-auto mb-16">
