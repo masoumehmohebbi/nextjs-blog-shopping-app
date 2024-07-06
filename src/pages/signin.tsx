@@ -46,7 +46,7 @@ const SignIn = () => {
 
   return (
     <Layout>
-      <div className="container md:max-w-md mx-auto mb-16">
+      <div className="container px-4 md:px-0 md:max-w-md mx-auto mb-16">
         <form
           onSubmit={formik.handleSubmit}
           className="flex flex-col space-y-4"
