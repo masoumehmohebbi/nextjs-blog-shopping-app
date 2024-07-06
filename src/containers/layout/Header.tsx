@@ -52,6 +52,7 @@ const Header = () => {
           >
             {navItems.map((item, index) => (
               <Link
+                onClick={() => setOpen(!open)}
                 href={item.href}
                 key={index}
                 className="flex transition-all duration-200 items-center cursor-pointer gap-x-1 group hover:text-violet-700"

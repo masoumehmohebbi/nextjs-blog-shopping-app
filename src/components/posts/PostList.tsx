@@ -10,7 +10,7 @@ const PostList = ({ blogsData }) => {
   return blogsData.map((blog) => (
     <div
       key={blog._id}
-      className="col-span-6 md:col-span-3 lg:col-span-2 flex flex-col p-2 max-h-[350px] shadow-lg rounded-xl overflow-hidden"
+      className="col-span-6 md:col-span-3 lg:col-span-2 bg-white rounded-3xl p-2 flex flex-col  max-h-[350px] shadow-lg overflow-hidden"
     >
       {/* blog cover */}
       <div className="aspect-w-16 aspect-h-9 mb-6">

@@ -12,9 +12,9 @@ const BlogPage = ({ postCategories, blogsData }) => {
 
   return (
     <Layout>
-      <div className="xl:max-w-screen-xl container mx-auto">
+      <div className="lg:max-w-screen-xl container mx-auto">
         <h1 className="mb-9 text-2xl font-black">مقالات برنامه نویسی</h1>
-        <div className="grid grid-cols-12  grid-rows-[60px_minmax(300px,_1fr)] gap-8 min-h-screen">
+        <div className="grid md:grid-cols-12 md:grid-rows-[60px_minmax(300px,_1fr)] gap-8 min-h-screen">
           {/* Category */}
           <div className="hidden md:block row-span-2 col-span-3">
             <DesktopCategory postCategories={postCategories} />
