@@ -12,7 +12,7 @@ const BlogPage = ({ postCategories, blogsData }) => {
 
   return (
     <Layout>
-      <div className="lg:max-w-screen-xl container mx-auto">
+      <div className="lg:max-w-screen-xl container mx-auto px-4 md:px-0">
         <h1 className="mb-9 text-2xl font-black">مقالات برنامه نویسی</h1>
         <div className="grid md:grid-cols-12 md:grid-rows-[60px_minmax(300px,_1fr)] gap-8 min-h-screen">
           {/* Category */}
