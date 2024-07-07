@@ -23,7 +23,7 @@ const PostList = ({ blogsData }) => {
         </Link>
       </div>
       {/* blog content */}
-      <div className="flex-1 justify-between flex bg-violet-100 rounded-xl p-1 flex-col">
+      <div className="flex-1 justify-between flex bg-violet-50 rounded-xl p-1 flex-col">
         <Link href={`/posts/${blog.hashId}/${blog.slug}`}>
           <h2 className="font-bold mb-4 md:mb-0">{blog.title}</h2>
         </Link>

@@ -1,18 +1,19 @@
-import DesktopCategory from "@/components/posts/DesktopCategory";
 import PostComments from "@/components/posts/postComments";
 import PostInteraction from "@/components/posts/PostInteraction";
 import PostList from "@/components/posts/PostList";
-import SortBar from "@/components/posts/SortBar";
+
 import Layout from "@/containers/layout";
 import useMoveBack from "@/hooks/useMoveBack";
 import http from "@/services/httpService";
 import toLocalDate from "@/utils/toLocalDate";
 import toPersianDigits from "@/utils/toPersianDigits";
+
 import {
-  ArrowLongRightIcon,
   BookmarkIcon,
   LinkIcon,
+  ArrowLongRightIcon,
 } from "@heroicons/react/24/outline";
+import { BookmarkIcon as SolideBookmarkIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -80,9 +81,15 @@ const PostDetails = ({ post }) => {
             <button>
               <LinkIcon className="h-6 w-6 hover:text-slate-800 text-violet-500 cursor-pointer " />
             </button>
-            <button className="rounded-2xl items-center flex gap-x-1 transition-all duration-200 bg-gray-200 text-gray-600 hover:text-gray-100 hover:bg-gray-600 px-2 py-1 text-sm">
-              <span>ذخیره</span>
-              <BookmarkIcon className="w-6 h-6" />
+            <button className="mr-4 border border-gray-300 text-gray-500 hover:text-gray-600 rounded-full px-3 py-1 flex items-center">
+              <span className="ml-1 text-xs ">
+                {post.isBookmarked ? "ذخیره شده" : "ذخیره"}
+              </span>
+              {post.isBookmarked ? (
+                <SolideBookmarkIcon className="h-6 w-6 fill-current" />
+              ) : (
+                <BookmarkIcon className="h-6 w-6 stroke-current" />
+              )}
             </button>
           </div>
         </header>
