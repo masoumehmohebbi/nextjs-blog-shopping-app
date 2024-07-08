@@ -14,7 +14,7 @@ const SortBar = () => {
   const router = useRouter();
   const [sort, setSort] = useState(router.query.sort || "newest");
 
-  const sortHandler = (id) => {
+  const sortHandler = (id: string) => {
     setSort(id);
     router.query.sort = id;
     routerPush(router);

@@ -3,10 +3,23 @@ import PostList from "@/components/posts/PostList";
 import SortBar from "@/components/posts/SortBar";
 import Layout from "@/containers/layout";
 import axios from "axios";
+import { GetServerSidePropsContext } from "next";
 import queryString from "query-string";
 import React from "react";
+import { Blog } from "src/types/blogData";
 
-const CategorySlug = ({ postCategories, blogsData }) => {
+interface PostCategory {
+  id: string;
+  name: string;
+}
+
+interface CategorySlugProps {
+  postCategories: PostCategory[];
+  blogsData: {
+    docs: Blog[];
+  };
+}
+const CategorySlug = ({ postCategories, blogsData }: CategorySlugProps) => {
   return (
     <Layout>
       <div className="xl:max-w-screen-xl container mx-auto">
@@ -32,7 +45,7 @@ const CategorySlug = ({ postCategories, blogsData }) => {
 
 export default CategorySlug;
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const { req, query } = ctx;
 
   const { data: postCategories } = await axios.get(

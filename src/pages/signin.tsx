@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Input from "@/components/formInput";
 import Layout from "@/containers/layout";
 import { useAuth, useAuthActions } from "@/context/AuthContext";

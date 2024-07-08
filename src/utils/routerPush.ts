@@ -1,4 +1,6 @@
-const routerPush = (router) => {
+import { NextRouter } from "next/router";
+
+const routerPush = (router: NextRouter) => {
   router.push(
     {
       pathname: router.pathname,

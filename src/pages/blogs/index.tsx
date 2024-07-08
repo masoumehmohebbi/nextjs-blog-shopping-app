@@ -3,11 +3,28 @@ import DesktopCategory from "@/components/posts/DesktopCategory";
 import PostList from "@/components/posts/PostList";
 import SortBar from "@/components/posts/SortBar";
 import http from "@/services/httpService";
+import { GetServerSidePropsContext } from "next";
 import queryString from "query-string";
 import React from "react";
 import Layout from "src/containers/layout";
+import { Blog } from "src/types/blogData";
 
-const BlogPage = ({ postCategories, blogsData }) => {
+interface PostCategory {
+  _id: string;
+  name: string;
+}
+
+interface BlogsData {
+  docs: Blog[];
+  page: number;
+  totalPages: number;
+}
+
+interface BlogPageProps {
+  postCategories: PostCategory[];
+  blogsData: BlogsData;
+}
+const BlogPage = ({ postCategories, blogsData }: BlogPageProps) => {
   return (
     <Layout>
       <div className="lg:max-w-screen-xl container mx-auto px-4 md:px-0">
@@ -38,7 +55,7 @@ const BlogPage = ({ postCategories, blogsData }) => {
 
 export default BlogPage;
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const { req, query } = ctx;
 
   const { data: postCategories } = await http.get("/post-category");

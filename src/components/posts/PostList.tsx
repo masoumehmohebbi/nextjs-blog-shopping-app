@@ -3,9 +3,14 @@ import React from "react";
 import PostInteraction from "./PostInteraction";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import toPersianDigits from "@/utils/toPersianDigits";
+import { Blog } from "src/types/blogData";
 
-const PostList = ({ blogsData }) => {
-  return blogsData.map((blog) => (
+interface PostListProps {
+  blogsData: Blog[];
+}
+
+const PostList = ({ blogsData }: PostListProps) => {
+  return blogsData.map((blog: any) => (
     <div
       key={blog._id}
       className="col-span-6 md:col-span-3 lg:col-span-2 bg-white rounded-3xl p-2 flex flex-col  max-h-[350px] shadow-lg overflow-hidden"
@@ -46,7 +51,7 @@ const PostList = ({ blogsData }) => {
           </div>
           {/* blog interaction */}
           <div className="flex justify-between items-center">
-            <PostInteraction isSmall post={blog} />
+            <PostInteraction isSmall post={blog} className="" />
             <div className="flex text-gray-600 items-center gap-x-1 text-xs">
               <ClockIcon className="w-4 h-4" />
               <span>زمان مطالعه:</span>

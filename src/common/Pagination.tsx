@@ -12,10 +12,16 @@ const theme = createTheme({
   },
 });
 
-const PaginationComponent = ({ page, count }) => {
+const PaginationComponent = ({
+  page,
+  count,
+}: {
+  page: number;
+  count: number;
+}) => {
   const router = useRouter();
-  const pageHandler = (e, page) => {
-    router.query.page = page;
+  const pageHandler = (e: React.ChangeEvent<unknown>, page: number) => {
+    router.query.page = String(page);
     routerPush(router);
   };
   return (

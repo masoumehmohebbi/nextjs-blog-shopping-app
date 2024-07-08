@@ -4,7 +4,13 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
-const CommentForm = ({ postId, responseTo, setOnreply }) => {
+interface CommentFormProps {
+  postId: string;
+  responseTo?: string;
+  setOnreply?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const CommentForm = ({ postId, responseTo, setOnreply }: CommentFormProps) => {
   const [commentValue, setCommentValue] = useState("");
   const router = useRouter();
 
@@ -13,13 +19,15 @@ const CommentForm = ({ postId, responseTo, setOnreply }) => {
     responseTo,
     postId,
   };
-  const submitHandler = (e) => {
+  const submitHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
     http
       .post("/post-comment/save-comment", data)
       .then((res) => {
         setCommentValue("");
-        if (setOnreply) setOnreply((open) => !open);
+        if (setOnreply) setOnreply((open: boolean) => !open);
         toast.success(res.data.message);
         routerPush(router);
       })

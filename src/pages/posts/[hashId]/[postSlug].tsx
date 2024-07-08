@@ -20,8 +20,10 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaTelegram } from "react-icons/fa";
 import { IoLogoLinkedin, IoLogoTwitter } from "react-icons/io";
 import { MdContentCopy } from "react-icons/md";
+import { PostDetailsProps } from "src/types/blogData";
+import { GetServerSidePropsContext } from "next";
 
-const PostDetails = ({ post }) => {
+const PostDetails = ({ post }: PostDetailsProps) => {
   const [copied, setCopied] = useState(false);
   const moveBack = useMoveBack();
 
@@ -163,6 +165,7 @@ plugins: [],
         <section className="flex items-center justify-between mb-6">
           {/* like- comment- bookmark */}
           <PostInteraction
+            isSmall=""
             post={post}
             className="justify-evenly w-full md:w-auto"
           />
@@ -241,7 +244,7 @@ plugins: [],
 
 export default PostDetails;
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const { query, req } = ctx;
   const { postSlug } = query;
   const {

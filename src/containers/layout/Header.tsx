@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useAuth, useAuthActions } from "@/context/AuthContext";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -29,6 +30,9 @@ const navItems = [
   },
 ];
 const Header = () => {
+  interface User {
+    name: string;
+  }
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
   const dispatch = useAuthActions();

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { createContext, useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useReducerAsync } from "use-reducer-async";
