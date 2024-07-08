@@ -5,8 +5,6 @@ import { ClockIcon } from "@heroicons/react/24/outline";
 import toPersianDigits from "@/utils/toPersianDigits";
 
 const PostList = ({ blogsData }) => {
-  console.log("---", blogsData);
-
   return blogsData.map((blog) => (
     <div
       key={blog._id}

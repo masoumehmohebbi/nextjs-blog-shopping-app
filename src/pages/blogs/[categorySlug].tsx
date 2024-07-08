@@ -39,7 +39,12 @@ export async function getServerSideProps(ctx) {
     "http://localhost:5000/api/post-category"
   );
   const { data: result } = await axios.get(
-    `http://localhost:5000/api/posts?${queryString.stringify(query)}`
+    `http://localhost:5000/api/posts?${queryString.stringify(query)}`,
+    {
+      headers: {
+        Cookie: req.headers.cookie || "",
+      },
+    }
   );
 
   return {

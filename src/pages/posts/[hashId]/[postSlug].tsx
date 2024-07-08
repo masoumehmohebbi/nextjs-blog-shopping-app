@@ -13,7 +13,7 @@ import {
   LinkIcon,
   ArrowLongRightIcon,
 } from "@heroicons/react/24/outline";
-import { BookmarkIcon as SolideBookmarkIcon } from "@heroicons/react/solid";
+import { BookmarkIcon as SolideBookmarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -246,7 +246,11 @@ export async function getServerSideProps(ctx) {
   const { postSlug } = query;
   const {
     data: { data },
-  } = await http.get(`/posts/${postSlug}`);
+  } = await http.get(`/posts/${postSlug}`, {
+    headers: {
+      Cookie: req.headers.cookie || "",
+    },
+  });
 
   return {
     props: {

@@ -8,8 +8,6 @@ import React from "react";
 import Layout from "src/containers/layout";
 
 const BlogPage = ({ postCategories, blogsData }) => {
-  console.log(blogsData);
-
   return (
     <Layout>
       <div className="lg:max-w-screen-xl container mx-auto px-4 md:px-0">
@@ -46,7 +44,12 @@ export async function getServerSideProps(ctx) {
   const { data: postCategories } = await http.get("/post-category");
 
   const { data: blogsData } = await http.get(
-    `/posts?${queryString.stringify(query)}`
+    `/posts?${queryString.stringify(query)}`,
+    {
+      headers: {
+        Cookie: req.headers.cookie || "",
+      },
+    }
   );
 
   return {
