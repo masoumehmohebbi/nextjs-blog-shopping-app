@@ -3,7 +3,6 @@
 
 <h2>This is a SignUp Form that validation is with Formik - Yup</h2>
  
-https://github.com/masoumehmohebbi/nextjs-formik-yup-form/assets/88876100/34be962b-e99c-4052-be33-8c3fe753a665
 
 <h2>Built with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Food/Hot%20Beverage.png" alt="Alien" width="35" height="35" /></h2>
    <ul>
