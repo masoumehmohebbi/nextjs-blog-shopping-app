@@ -1,7 +1,7 @@
 
 # Todo-List <img src="https://github.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/raw/master/Emojis/Activities/Party%20Popper.png?raw=true" alt="Alien Monster" width="40" height="40" />
 
-<h2>This is a SignUp Form that validation is with Formik - Yup</h2>
+<h2>This is a ‌Blog-Shopping app</h2>
  
 
 <h2>Built with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Food/Hot%20Beverage.png" alt="Alien" width="35" height="35" /></h2>
@@ -30,7 +30,7 @@
 <p>1. First, you need to clone the project:</p>
 
 ```
-git clone https://github.com/masoumehmohebbi/nextjs-formik-yup-form
+git clone https://github.com/masoumehmohebbi/nextjs-blog-shopping-app
 ```
 
 <p>2. Then, install required packages:</p>
