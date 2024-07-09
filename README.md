@@ -1,10 +1,10 @@
 
 # Blog-Shopping-app <img src="https://github.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/raw/master/Emojis/Activities/Party%20Popper.png?raw=true" alt="Alien Monster" width="40" height="40" />
-
-<h2>This is a ‌Blog-Shopping app</h2>
  
 
-<h2>Implemented with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Food/Hot%20Beverage.png" alt="Alien" width="35" height="35" /></h2>
+<h2>Implemented with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Food/Hot%20Beverage.png" alt="Alien" width="35" height="35" />
+ <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Down%20Light%20Skin%20Tone.png" alt="Backhand Index Pointing Down Light Skin Tone" width="30" height="30" />
+</h2>
 
  ![Blog-Shopping-App](https://github.com/masoumehmohebbi/nextjs-blog-shopping-app/assets/88876100/0473e710-5e18-414c-9d22-922a73f3ea74)
 
