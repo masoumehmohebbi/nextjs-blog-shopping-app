@@ -18,7 +18,7 @@
 <h2>Links <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Travel%20and%20places/Star.png" alt="Backhand Index Pointing Down Light Skin Tone" width="30" height="30" /></h2>
 <ul>
    <li>
-      <a href="https://github.com/masoumehmohebbi/masoumehmohebbi/nextjs-formik-yup-form">GitHub repository</a>
+      <a href="https://github.com/masoumehmohebbi/masoumehmohebbi/nextjs-blog-shopping-app">GitHub repository</a>
    </li>
    <li>
       <a href="https://github.com/masoumehmohebbi/?tab=repositories">My other projects</a>
