@@ -4,16 +4,10 @@
 <h2>This is a ‌Blog-Shopping app</h2>
  
 
-<h2>Built with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Food/Hot%20Beverage.png" alt="Alien" width="35" height="35" /></h2>
-   <ul>
-      <li>Language ┈➤ Typescript</li>
-      <li>FrameWork ┈➤ Next.js 14</i>
-      <li>Next.js-Directory ┈➤ App Router</li>
-      <li>Styling ┈➤ TailwindCss</li>
-      <li>Form-Validation ┈➤ Formik - Yup</i>
-      <li>Database ┈➤ Json-Server</i>
-      
-   </ul>
+<h2>Implemented with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Food/Hot%20Beverage.png" alt="Alien" width="35" height="35" /></h2>
+
+ ![Blog-Shopping-App](https://github.com/masoumehmohebbi/nextjs-blog-shopping-app/assets/88876100/0473e710-5e18-414c-9d22-922a73f3ea74)
+
 
 <h2>Links <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Travel%20and%20places/Star.png" alt="Backhand Index Pointing Down Light Skin Tone" width="30" height="30" /></h2>
 <ul>
