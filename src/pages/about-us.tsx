@@ -18,10 +18,14 @@ const AboutUs = () => {
             <span>برگشت</span>
           </button>
         </div>
-        <p>
-          پروژه فروشگاهی-بلاگی هست که با نکست و تایپ اسکریپت توسعه داده شده.
+        <p className="mb-4">
+          پروژه فروشگاهی-بلاگی هست که با تکنولوژی های زیر توسعه داده شده است:
         </p>
-        <span>...</span>
+        <img
+          className="w-full"
+          src="/images/MindMap-Blog-Shopping-App.PNG"
+          alt="MindMap-Blog-Shopping-App"
+        />
       </div>
     </Layout>
   );

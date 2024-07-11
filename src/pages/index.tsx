@@ -21,7 +21,7 @@ export default function Home() {
             فارسی ایجاد کرد.
           </p>
           <span className="text-violet-700 text-base mb-7 md:mb-0 md:text-lg font-semibold">
-            برای دیدن بلاگ ها وارد شوید
+            برای استفاده از امکانات بیشتر وارد شوید
           </span>
         </div>
         <img
