@@ -6,6 +6,8 @@ import { useFormik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userSignin } from "src/redux/user/userActions";
 import { SignInFormValues } from "src/types/formInputs";
 import * as Yup from "yup";
 
@@ -25,13 +27,15 @@ const initialValues = {
 };
 
 const SignIn = () => {
-  const dispatch = useAuthActions();
-  const { user } = useAuth();
+  // const dispatch = useAuthActions();
+  const dispatch = useDispatch();
+  // const { user } = useAuth();
+  const { user } = useSelector((state) => state.userSignin);
   const router = useRouter();
 
   const onSubmit = (values: SignInFormValues) => {
     const { email, password } = values;
-    dispatch({ type: "SIGNIN", payload: values });
+    dispatch(userSignin(values));
   };
 
   const formik = useFormik({

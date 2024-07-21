@@ -1,10 +1,12 @@
 // @ts-nocheck
 import Input from "@/components/formInput";
 import Layout from "@/containers/layout";
-import { useAuthActions } from "@/context/AuthContext";
 import { useFormik } from "formik";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userSignup } from "src/redux/user/userActions";
 import { SignUpFormValues } from "src/types/formInputs";
 import * as Yup from "yup";
 
@@ -36,15 +38,24 @@ const validationSchema = Yup.object({
 });
 
 const SignUpForm = () => {
-  const dispatch = useAuthActions();
+  // const dispatch = useAuthActions();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userSignup);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) router.push("/");
+  }, [user]);
 
   const onSubmit = (values: SignUpFormValues) => {
     const { name, email, phoneNumber, password } = values;
 
-    dispatch({
-      type: "SIGNUP",
-      payload: { name, email, phoneNumber, password },
-    });
+    // dispatch({
+    //   type: "SIGNUP",
+    //   payload: { name, email, phoneNumber, password },
+    // });
+
+    dispatch(userSignup({ name, email, phoneNumber, password }));
   };
 
   const formik = useFormik({

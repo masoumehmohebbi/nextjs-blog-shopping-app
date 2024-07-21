@@ -36,7 +36,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
 
   return (
     <Layout>
-      <div className="md:max-w-screen-md container mx-auto">
+      <div className="md:max-w-screen-md container mx-auto pb-10">
         <div className="flex items-center mb-9">
           <button
             onClick={moveBack}

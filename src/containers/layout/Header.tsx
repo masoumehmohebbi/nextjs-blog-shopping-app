@@ -1,10 +1,11 @@
 //@ts-nocheck
-import { useAuth, useAuthActions } from "@/context/AuthContext";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BiLogOut, BiMenu, BiX } from "react-icons/bi";
 import { RiHome4Line, RiInformation2Line, RiNextjsFill } from "react-icons/ri";
 import { RiBloggerLine } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "src/redux/user/userActions";
 
 const navItems = [
   {
@@ -34,8 +35,12 @@ const Header = () => {
     name: string;
   }
   const [open, setOpen] = useState(false);
-  const { user } = useAuth();
-  const dispatch = useAuthActions();
+  // const { user } = useAuth();
+  // const dispatch = useAuthActions();
+  const userInfo = useSelector((state) => state.userSignin);
+  const { user, loading } = userInfo;
+
+  const dispatch = useDispatch();
 
   return (
     <header className="mb-7 h-20 md:h-auto bg-[#f4f5f7] z-50 text-slate-800 sticky top-0">
@@ -90,7 +95,7 @@ const Header = () => {
               </span>
               <button
                 className="flex text-sm sm:text-base items-center gap-x-1 bg-red-600 hover:bg-red-500 transition-all duration-200 text-red-100 px-3 md:px-5 py-1 md:py-2 rounded-lg"
-                onClick={() => dispatch({ type: "SIGNOUT" })}
+                onClick={() => dispatch(signout())}
               >
                 <BiLogOut className="w-4 md:w-5 h-4 md:h-5" />
                 خروج
