@@ -22,7 +22,7 @@ const AboutUs = () => {
           پروژه فروشگاهی-بلاگی هست که با تکنولوژی های زیر توسعه داده شده است:
         </p>
         <img
-          className="w-full"
+          className="w-full rounded-md"
           src="/images/MindMap-Blog-Shopping-App.PNG"
           alt="MindMap-Blog-Shopping-App"
         />

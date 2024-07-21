@@ -61,7 +61,7 @@ const PostInteraction = ({ post, isSmall, className }) => {
         {post.isLiked ? (
           <SolidHearIcon className={`${iconSize} fill-current`} />
         ) : (
-          <HeartIcon className={`${iconSize} stroke-cfill-current`} />
+          <HeartIcon className={`${iconSize} stroke-current`} />
         )}
         <span className={`${numberSize} block font-bold leading-3`}>
           {toPersianDigits(post.likesCount)}
